@@ -1,4 +1,4 @@
-import NotFound from "@/app/not-found";
+import { notFound } from "next/navigation";
 
 const page = async({params}) => {
     const { id } = params;
@@ -12,7 +12,7 @@ const page = async({params}) => {
         console.error(err);
     }
 
-    if(id != data?.id) return <NotFound />
+    if(id != data?.id) return notFound();
 
     return (
         <div className="post container mx-auto px-6 py-14">
